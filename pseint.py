@@ -256,3 +256,102 @@ if (numero1 < numero2):
     print(str(numero1) + " " + str(numero2))
 else:
     print(str(numero2) + " " + str(numero1)) """
+
+
+# 7) Una persona enferma, que pesa 70 kg, se encuentra en reposo y desea saber 
+#    cuántas calorías consume su cuerpo durante todo el tiempo que realice una 
+#    misma actividad. Las actividades que tiene permitido realizar son únicamente 
+#    dormir o estar sentado en reposo. Los datos que tiene son que estando dormido 
+#    consume 1.08 calorías por minuto y estando sentado en reposo consume 1.66 calorías
+#    por minuto. 
+
+""" actividad = input("Ingrese actividad: ")
+minutos = int(input("Ingrese cantidad de minutos: "))
+calorias_consumidas = 0
+
+if actividad == "sentado":
+    calorias_consumidas = minutos * 1.66
+elif actividad == "dormido":
+     alorias_consumidas = minutos * 1.08
+
+print(calorias_consumidas)    """     
+
+
+# 8) Escribir un algoritmo que despliegue el nombre de un artículo, clave, 
+#  precio original y su precio con descuento. El descuento lo hace en base a 
+# la clave, si la clave es 01 el descuento es del 10% y si la clave es 02 el 
+# descuento en del 20% (solo existen dos claves).
+
+""" nombre_articulo = input("Ingrese nombre: ")
+clave = input("Ingrese clave: ")
+precio_original = float(input("Ingrese precio original: "))
+
+
+if clave == "01":
+    porcentaje_descuento = 0.10
+elif clave == "02":
+    porcentaje_descuento = 0.20
+else:
+    print("Clave no válida. No se aplicará descuento.")
+    porcentaje_descuento = 0
+
+precio_descuento = precio_original * (1 - porcentaje_descuento)
+
+print(
+    f"Nombre Artículo: {nombre_articulo} - Clave: {clave} - "
+    f"Precio Original: {precio_original:.2f} - "
+    f"Precio con Descuento: {precio_descuento:.2f}"
+) """
+
+
+# 9) Hacer un algoritmo que calcule el total a pagar por la compra de camisas. 
+#  Si se compran tres camisas o más se aplica un descuento del 20% sobre el 
+#  total de la compra y si son menos de tres camisas un descuento del 10%
+
+""" numero_camisas = int(input("Ingrese número de camisas: "))
+precio = float(input("Ingrese precio de la camisa: "))
+if numero_camisas >=3:
+    precio_final = numero_camisas * (precio * (1-0.20))
+else:
+    precio_final = numero_camisas * (precio * (1-0.10))
+print(f"Total a pagar: {precio_final}") """
+
+# 10) Una empresa quiere hacer una compra “rayos de bicicleta” a una fábrica de 
+#     bicicletas. La empresa, dependiendo del monto total de la compra, decidirá 
+#     qué hacer para pagar al fabricante.
+#  • Si el monto total de la compra excede de $500 000 la empresa tendrá la 
+#    capacidad de invertir de su propio dinero un 55% del monto de la compra, 
+#    pedir prestado al banco un 30% y el resto lo pagará solicitando un crédito 
+#    al fabricante.
+#  • Si el monto total de la compra no excede de $500 000 la empresa tendrá capacidad 
+#    de invertir de su propio dinero un 70% y el restante 30% lo pagará solicitando 
+#    crédito al fabricante.
+#  • El fabricante cobra por concepto de intereses un 20% sobre la cantidad que 
+#    se le pague a crédito.
+#  • El algoritmo debe entregar la cantidad que la empresa debe invertir, el 
+#    monto del préstamo bancario, el crédito que otorgará el proveedor y el interés 
+#    que éste cobrará.
+
+costo_pieza = float(input("Ingrese el costo por pieza: "))
+numero_piezas = int(input("Ingrese la cantidad de piezas: "))
+monto_compra = costo_pieza * numero_piezas
+
+if monto_compra > 500000:
+    monto_a_invertir = monto_compra * 0.55
+    prestamo_bancario = monto_compra * 0.30
+    
+else:
+    monto_a_invertir = monto_compra * 0.70
+    prestamo_bancario = 0
+    
+credito_fabricante = monto_compra - (monto_a_invertir + prestamo_bancario)
+interes_fabricante = credito_fabricante * 0.20
+
+print(f"""
+---------------------------------
+Monto a Invertir: ${monto_a_invertir:.2f}
+Préstamo Bancario: ${prestamo_bancario:.2f}
+Crédito Fabricante: ${credito_fabricante:.2f}
+Intereses Fabricante: ${interes_fabricante:.2f}
+---------------------------------
+""")
