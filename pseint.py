@@ -332,7 +332,7 @@ print(f"Total a pagar: {precio_final}") """
 #    monto del préstamo bancario, el crédito que otorgará el proveedor y el interés 
 #    que éste cobrará.
 
-costo_pieza = float(input("Ingrese el costo por pieza: "))
+""" costo_pieza = float(input("Ingrese el costo por pieza: "))
 numero_piezas = int(input("Ingrese la cantidad de piezas: "))
 monto_compra = costo_pieza * numero_piezas
 
@@ -345,13 +345,145 @@ else:
     prestamo_bancario = 0
     
 credito_fabricante = monto_compra - (monto_a_invertir + prestamo_bancario)
-interes_fabricante = credito_fabricante * 0.20
+interes_fabricante = credito_fabricante * 0.20 """
 
-print(f"""
----------------------------------
-Monto a Invertir: ${monto_a_invertir:.2f}
-Préstamo Bancario: ${prestamo_bancario:.2f}
-Crédito Fabricante: ${credito_fabricante:.2f}
-Intereses Fabricante: ${interes_fabricante:.2f}
----------------------------------
-""")
+#print(f"""
+#---------------------------------
+#Monto a Invertir: ${monto_a_invertir:.2f}
+#Préstamo Bancario: ${prestamo_bancario:.2f}
+#Crédito Fabricante: ${credito_fabricante:.2f}
+#Intereses Fabricante: ${interes_fabricante:.2f}
+#---------------------------------
+#""")
+
+#==============================================================
+#====================Problemas Propuestos Pag 23===============
+#==============================================================
+
+# 1) Calcular el total que una persona debe pagar por la compra de 
+# neumáticos en un supermercado, si el precio de cada neumático es 
+# de $64.500 si se compran menos de 5 neumáticos y de $51.200 si se compran 5 o más.
+
+""" cant_neumaticos = int(input("Ingrese cantidad de neumaticos: "))
+
+
+if cant_neumaticos < 5:
+    precio_compra = cant_neumaticos * 64500
+else:
+    precio_compra = cant_neumaticos * 51200
+
+print("El total de la compra es: ")
+print(precio_compra)    """     
+
+
+
+""" # Constantes para precios y umbral de descuento
+PRECIO_NORMAL = 64500
+PRECIO_DESCUENTO = 51200
+CANTIDAD_MINIMA_DESCUENTO = 5
+
+try:
+    # Entrada de datos con validación
+    cantidad_neumaticos = int(input("Ingrese la cantidad de neumáticos: "))
+    
+    if cantidad_neumaticos < 0:
+        print("Error: La cantidad no puede ser negativa")
+    else:
+        # Cálculo del precio según cantidad
+        if cantidad_neumaticos >= CANTIDAD_MINIMA_DESCUENTO:
+            precio_unitario = PRECIO_DESCUENTO
+            total = cantidad_neumaticos * PRECIO_DESCUENTO
+        else:
+            precio_unitario = PRECIO_NORMAL
+            total = cantidad_neumaticos * PRECIO_NORMAL
+        
+        # Mostrar resultados formateados
+        print("\nDetalle de la compra:")
+        print(f"- Cantidad de neumáticos: {cantidad_neumaticos}")
+        print(f"- Precio unitario aplicado: ${precio_unitario:,.2f}")
+        print(f"- Total a pagar: ${total:,.2f}")
+
+except ValueError:
+    print("Error: Debe ingresar un número entero válido") """
+
+# 2)En un supermercado se hace una promoción, mediante la cual el cliente 
+# obtiene un descuento dependiendo de un número que se escoge al azar. 
+# Si el número escogido es menor que 74 el descuento es del 15% sobre el 
+# total de la compra, si es mayor o igual a 74 el descuento es del 20%.  
+# Obtener cuánto dinero se le descuenta.
+
+# numero al azar - descuento - total_compra 
+
+""" import random
+
+numero_azar = random.randint(1,100)
+total_compra = float(input("Ingrese el total de la compra: "))
+if numero_azar < 74:
+    descuento = total_compra * 0.15
+else:
+    descuento = total_compra * 0.20
+print(f"El numero al azar es: {numero_azar}")
+print("====================")
+print("El descuento de la compra es: ")
+print(descuento)
+print("=================")
+print("El total de la compra es:")
+print(total_compra)
+print("=================")
+print("El total a pagar es: ")
+print(total_compra-descuento) """
+
+#=============================
+#=======VERSION IA============
+#=============================
+""" import random
+
+# Generar número aleatorio
+numero_azar = random.randint(1, 100)
+
+# Pedir total de la compra (con validación)
+while True:
+    try:
+        total_compra = float(input("Ingrese el total de la compra: $"))
+        if total_compra >= 0:
+            break
+        else:
+            print("Error: Ingrese un monto positivo.")
+    except ValueError:
+        print("Error: Ingrese un número válido.")
+
+# Calcular descuento
+if numero_azar < 74:
+    descuento = total_compra * 0.15
+    porcentaje = "15%"
+else:
+    descuento = total_compra * 0.20
+    porcentaje = "20%"
+
+# Mostrar resultados
+print("\n" + "=" * 30)
+print(f"Número aleatorio: {numero_azar} → Descuento: {porcentaje}")
+print(f"Total compra: ${total_compra:.2f}")
+print(f"Descuento aplicado: ${descuento:.2f}")
+print(f"Total a pagar: ${(total_compra - descuento):.2f}")
+print("=" * 30) """
+
+
+# 3)Calcular el número de pulsaciones que debe tener una persona por 
+#  cada 10 segundos de ejercicio aeróbico; la fórmula que se aplica 
+# cuando el sexo es femenino es: 
+#             num. pulsaciones = (220 - edad)/10
+#              y si el sexo es masculino:
+#		      num. pulsaciones = (210 - edad)/10
+
+
+""" print("Ingrese sexo de la persona")
+numero = int(input("1 Para masculino, 2 para femenino: "))
+edad = int(input("Ingrese edad de la persona: "))
+if numero == 1:
+    numero_pulsaciones = (220 - edad)/10
+elif numero == 2:
+    numero_pulsaciones = (210 - edad)/10    
+
+print(f"El número de pulsaciones es de : {numero_pulsaciones} ")
+ """
