@@ -357,7 +357,7 @@ interes_fabricante = credito_fabricante * 0.20 """
 #""")
 
 #==============================================================
-#====================Problemas Propuestos Pag 23===============
+#====================PROBLEMAS PROPUESTOS PAG 23===============
 #==============================================================
 
 # 1) Calcular el total que una persona debe pagar por la compra de 
@@ -487,3 +487,303 @@ elif numero == 2:
 
 print(f"El número de pulsaciones es de : {numero_pulsaciones} ")
  """
+
+""" CONSULTAR AL PROFESOR SOBRE QUE DEBERIA PSAR SI EL MONTO ES 50.999 (PROBLEMAS DE HUMBRAL)"""
+
+# 4) El “Banco Ahorre Aquí” para su departamento de inversiones estableció 
+# un programa para captar clientes, que consiste en lo siguiente: Si el monto 
+# a invertir el cliente es menor que $50.999 la comisión que cobrará el banco
+# será del 1% del monto invertido, y si el monto a invertir es mayor que $50.999 
+# la comisión que cobrará el banco será del 0.3% del monto invertido. El banco 
+# desea determinar cuál será la comisión que debe pagar un cliente.
+
+""" monto_invertir = float(input("Ingrese monto a invertir: "))
+if monto_invertir < 50999:
+    comision = monto_invertir * 0.001
+else:
+    comision = monto_invertir * 0.003
+
+print("La comision a pagar es: ")
+print(comision) """
+
+
+""" CONSULTAR AL PROFESOR SOBRE QUE DEBERIA PSAR SI EL MONTO ES 500.000 (PROBLEMAS DE HUMBRAL)"""
+
+# 5) El Ministerio de Vivienda y Urbanismo ofrece casas de interés social, bajo 
+# las siguientes condiciones: Si los ingresos del postulante son de $500.000 o 
+# menos el pie de la casa será del 15% del costo de la casa y el resto se 
+# distribuirá en pagos mensuales, a pagar en diez años. Si los ingresos del 
+# postulante son de $500.000 o más el pie será del 30% del costo de la casa y 
+# el resto se distribuirá en pagos mensuales a pagar en 7 años.
+# El Ministerio quiere obtener cuanto deberá pagar un postulante por concepto 
+# de pie de la casa y cuanto por cada pago mensual.
+
+#ingresos_postulante - pie_casa - costo_casa - pago_mensual
+
+""" ingresos_postulante = float(input("Ingrese los ingresos del postulante: "))
+costo_casa = float(input("Ingrese el costo de la casa: "))
+if ingresos_postulante <=500000:
+    pie_casa = costo_casa * 0,15
+else:
+    pie_casa = costo_casa * 0,30 """
+
+
+# 6) Como un nuevo plan de austeridad el gobierno ha establecido el programa 
+# SARV (Sistema de Ahorro para el Retiro Voluntario) que consiste en que los 
+# dueños de la empresa deben obligatoriamente depositar en una cuenta bancaria 
+# un porcentaje del sueldo de los trabajadores; adicionalmente los trabajadores 
+# pueden solicitar a la empresa que deposite directamente una cuota fija o un 
+# porcentaje de su sueldo en la cuenta del SARV, la cual le será descontada de su pago.
+# Un/a trabajador/a que ha decidido aportar a su cuenta del SARV desea saber la cantidad
+# total de dinero que estará depositado a esa cuenta cada mes, y el pago mensual que recibirá.
+
+
+#==============================================
+#=============SEGUIR CON CICLOS PAG 31=========
+#==============================================
+
+# 1) Calcular el promedio de un alumno que tiene n calificaciones en la 
+# asignatura de Introducción a la Programación.
+
+""" suma = 0
+
+cantidad_calificaciones = int(input("Ingrese cantidad de calificaciones: "))
+x=1
+while x < cantidad_calificaciones:
+    calificacion = float(input(f"Ingrese calificacion {x}: "))
+    suma = suma + calificacion
+    x=x+1
+
+print("El promedio del alumno es: ")
+print(suma/cantidad_calificaciones) """
+
+
+#2) Leer n números y obtener su cubo y su cuarta.
+ 
+
+""" def cargar_numeros():
+    numeros = []
+    cant_numeros = int(input("Ingrese cantidad de números: "))
+    for x in range(cant_numeros):
+        numero = int(input("Ingrese número: "))
+        numeros.append(numero)
+    return numeros
+
+def elevar_al_cubo_cuarta(numeros):
+    cubos = []
+    cuartas = []
+    for x in range(len(numeros)):
+        cubo = numeros[x]**3
+        cubos.append(cubo)
+        cuarta = numeros[x]**4
+        cuartas.append(cuarta)
+    return cubos, cuartas
+
+
+def imprimir_resultados(cubos,cuartas):
+    print("Números al cubo: ")
+    print(cubos)
+    print("Números a la cuarta: ")
+    print(cuartas)
+
+numeros = cargar_numeros()
+cubos,cuartas = elevar_al_cubo_cuarta(numeros)
+imprimir_resultados(cubos,cuartas) """
+    
+
+#==============================================
+#=============CODIGO IA================
+#==============================================
+
+""" def cargar_numeros():
+    numeros = []
+    try:
+        cant_numeros = int(input("Ingrese cantidad de números: "))
+        for i in range(cant_numeros):
+            while True:
+                try:
+                    numero = float(input(f"Ingrese el número {i + 1}: "))
+                    numeros.append(numero)
+                    break
+                except ValueError:
+                    print("¡Error! Ingrese un número válido.")
+        return numeros
+    except ValueError:
+        print("¡Error! La cantidad debe ser un número entero.")
+        return []
+
+def calcular_potencias(numeros):
+    numeros_al_cubo = [numero ** 3 for numero in numeros]
+    numeros_a_la_cuarta = [numero ** 4 for numero in numeros]
+    return numeros_al_cubo, numeros_a_la_cuarta
+
+def imprimir_resultados(numeros, cubos, cuartas):
+    print("\nResultados:")
+    print("Número\tCubo\tCuarta")
+    print("-" * 25)
+    for num, cubo, cuarta in zip(numeros, cubos, cuartas):
+        print(f"{num:.2f}\t{cubo:.2f}\t{cuarta:.2f}")
+
+# Ejecución principal
+numeros = cargar_numeros()
+if numeros:  # Solo continuar si se ingresaron números válidos
+    cubos, cuartas = calcular_potencias(numeros)
+    imprimir_resultados(numeros, cubos, cuartas) """
+
+
+#3) Leer n números e imprimir solamente los números positivos
+
+#===Solucion 1
+""" cant_numeros = int(input("Ingrese cantidad de números: "))
+
+for _ in range(cant_numeros):
+    numero = int(input("Ingrese número: "))
+    if numero > 0:
+        print(numero) """
+       
+
+#===Solucion 2
+""" def cargar_numeros():
+    numeros = []
+    cant_numeros = int(input("Ingrese cantidad de números: "))
+    for _ in range(cant_numeros):
+        numero = int(input("Ingrese número: "))
+        numeros.append(numero)
+    return numeros
+
+def imprimir_positivos(numeros):
+    for numero in numeros:
+        if numero > 0:
+            print(numero)   
+
+
+numeros = cargar_numeros()
+imprimir_positivos(numeros) """
+
+# 4)Leer n números e imprimir cuantos son positivos, cuantos negativos y cuantos neutros.
+
+
+""" def cargar_numeros():
+    numeros = []
+    cant_numeros = int(input("Ingrese cantidad de números: "))
+    for _ in range(cant_numeros):
+        numero = int(input("Ingrese número: "))
+        numeros.append(numero)
+    return numeros
+
+def determinar_numeros(numeros):
+    cont1=0
+    cont2=0
+    cont3=0
+    for numero in numeros:
+        if numero > 0:
+            cont1 += 1
+        elif numero < 0:
+            cont2 +=1
+        else:
+            cont3 +=1        
+    return cont1,cont2,cont3
+
+def imprimir_resultados(cont1,cont2,cont3):
+    print(f"La cantidad de números positivos es: {cont1}")
+    print(f"La cantidad de números negativos es: {cont2}")
+    print(f"La cantidad de números neutros es: {cont3}")
+
+numeros = cargar_numeros()
+positivos,negativos,neutros = determinar_numeros(numeros)
+imprimir_resultados(positivos,negativos,neutros) """
+
+
+# 5) Leer n números negativos y convertirlos a positivos e imprimir dichos números.
+
+#===Solucion 1
+
+""" cant_numeros = int(input("Ingrese cantidad de números negativos: "))
+
+for x in range(cant_numeros):
+        numero_negativo = int(input("Ingrese número negativo: "))
+        numero_positivo = numero_negativo * -1
+        print(numero_positivo) """
+
+
+#===Solucion 2
+""" def cargar_numeros_negativos():
+    numeros_negativos = []
+    cant_numeros = int(input("Ingrese cantidad de números: "))
+    for _ in range(cant_numeros):
+        numero_negativo = int(input("Ingrese número negativo: "))
+        numeros_negativos.append(numero_negativo)
+    return numeros_negativos
+
+def cambiar_a_positivos(numeros_negativos):
+    numeros_positivos = []
+    for numero in numeros_negativos:
+        numero_positivo = numero * -1
+        numeros_positivos.append(numero_positivo)
+    return numeros_positivos    
+
+
+numeros_negativos = cargar_numeros_negativos()
+print("=======cambio a positivo============")
+numeros_positivos = cambiar_a_positivos(numeros_negativos)
+print(numeros_positivos) """
+
+
+# 6) Suponga que se tiene un conjunto de calificaciones de un grupo de n alumnos. 
+# Realizar un algoritmo para calcular la calificación promedio y la calificación 
+# más baja de todo el grupo.
+
+#===Solucion 1
+""" calificaciones = [6,7,4,5,2,7,6,1,3,2]
+suma = 0
+calificacion_menor = calificaciones[0]
+
+for x in range(1,len(calificaciones)):
+    if calificaciones[x] < calificacion_menor:
+         calificacion_menor = calificaciones[x]
+
+for x in range(len(calificaciones)):
+    suma += calificaciones[x]
+            
+print("El promedio es: ")
+print(suma/len(calificaciones))
+print("La calificasion menor es: ")
+print(calificacion_menor) """
+
+#===Solucion 2
+
+""" n=int(input("Ingrese cantidad de calificaciones: "))
+suma=0
+baja=8
+for x in range(n):
+    calif=float(input("Ingrese calificacion: "))
+    suma+=calif
+    if calif<baja:
+        baja=calif
+
+print(f"El promedio de las calificaciones es: {suma/n}")
+print(f"La calificacion más baja es: {baja}") """
+
+
+# 7) Calcular e imprimir la tabla de multiplicar de un número cualquiera. 
+# Imprimir el multiplicando, el multiplicador y el producto. 
+
+""" multiplicando = int(input("Ingrese tabla: "))
+for multiplicador in range(1,11):
+    producto = multiplicando * multiplicador
+    print(f"{multiplicando} x {multiplicador} = {producto}") """
+
+#===Solucion 2
+
+
+#=================================================
+#=======PROBLEMAS PROPUESTOS PAG 34===============
+#=================================================
+
+#1)	Simular el comportamiento de un reloj digital, imprimiendo la hora, 
+# minutos y segundos de un día desde las 0:00:00 horas hasta las 23:59:59 horas
+
+for h in range(24):
+    for m in range(60):
+        for s in range(60):
+            print(h,":",m,":",s)

@@ -233,7 +233,138 @@ print(sueldos)     """
 # habitantes (de mayor a menor) e imprimir nuevamente.
 
 
-cap_inv = float(input("Ingrese capital:"))
+""" cap_inv = float(input("Ingrese capital:"))
 gan = cap_inv * 0.02
-print(gan)
+print(gan) """
 
+#========================================================
+#============REPASO BUCLE WILE===========================
+#========================================================
+
+#Escribir un programa que solicite ingresar 10 notas de alumnos y nos informe 
+#cuántos tienen notas mayores o iguales a 7 y cuántos menores.
+
+""" x=1
+mayores_iguales_7 = 0
+menores_7 = 0
+while x<=10:
+    nota = float(input(f"Ingrese nota {x}: "))
+    if nota >= 7:
+        mayores_iguales_7 = mayores_iguales_7 + 1
+    else:
+        menores_7 = menores_7 + 1
+    x=x+1
+
+print(f"Las notas mayores o iguales a 7 son: {mayores_iguales_7}")
+print("==========================================")
+print(f"Las notas mayores o iguales a 7 son: {menores_7}") """
+
+
+# Se ingresan un conjunto de n alturas de personas por teclado. Mostrar 
+# la altura promedio de las personas
+
+""" suma = 0
+cant_personas = int(input("Ingrese la cantidad de personas: "))
+x=1
+while x <= cant_personas:
+    altura = float(input(f"Ingrese la altura de la persona {x}: "))
+    suma = suma + altura
+    x=x+1
+
+print("La suma de las alturas es:")
+print(suma)    
+print(f"El promedio de las alturas es: {round((suma/cant_personas),2)}") """
+
+# En una empresa trabajan n empleados cuyos sueldos oscilan entre $100 y $500, 
+# realizar un programa que lea los sueldos que cobra cada empleado e informe 
+# cuántos empleados cobran entre $100 y $300 y cuántos cobran más de $300. 
+# Además el programa deberá informar el importe que gasta la empresa en sueldos al personal.
+
+""" def cargar_sueldos():
+    sueldos = []
+    cant_empleados = int(input("Ingrese cantidad de Empleados: "))
+    for x in range(cant_empleados):
+        sueldo = float(input(f"Ingrese sueldo del empleado {x+1}: "))
+        sueldos.append(sueldo)
+    return sueldos
+
+def determinar_sueldos(sueldos):
+    contador1 = 0
+    contador2 = 0
+    for x in range(len(sueldos)):
+        if sueldos[x] >= 100 and sueldos[x] <= 300:
+            contador1 = contador1 + 1
+        else:
+            contador2 = contador2 + 1    
+    return contador1, contador2
+
+def imprimir_resultados(contador1,contador2):
+    print(f"La cantidad de sueldos que estan entre 100 y 300 son: {contador1}")
+    print(f"La cantidad de sueldos mayores a 300 son : {contador2}")
+
+
+sueldos = cargar_sueldos()
+contador1,contador2 = determinar_sueldos(sueldos)
+imprimir_resultados(contador1,contador2) """
+
+
+#============================================
+#============    SOLUCION IA  ===============
+#============================================
+
+""" def cargar_sueldos():
+    sueldos = []
+    cant_empleados = int(input("Ingrese cantidad de Empleados: "))
+    for i in range(cant_empleados):
+        while True:
+            sueldo = float(input(f"Ingrese sueldo del empleado {i + 1}: "))
+            if 100 <= sueldo <= 500:
+                sueldos.append(sueldo)
+                break
+            else:
+                print("El sueldo debe estar entre $100 y $500. Intente nuevamente.")
+    return sueldos
+
+def calcular_estadisticas(sueldos):
+    empleados_100_a_300 = 0
+    empleados_mas_300 = 0
+    gasto_total = 0
+    
+    for sueldo in sueldos:
+        gasto_total += sueldo
+        if 100 <= sueldo <= 300:
+            empleados_100_a_300 += 1
+        else:
+            empleados_mas_300 += 1
+    
+    return empleados_100_a_300, empleados_mas_300, gasto_total
+
+def imprimir_resultados(empleados_100_a_300, empleados_mas_300, gasto_total):
+    print(f"\nEmpleados que cobran entre $100 y $300: {empleados_100_a_300}")
+    print(f"Empleados que cobran más de $300: {empleados_mas_300}")
+    print(f"Gasto total en sueldos: ${gasto_total:.2f}")
+
+# Ejecución principal
+sueldos = cargar_sueldos()
+empleados_100_a_300, empleados_mas_300, gasto_total = calcular_estadisticas(sueldos)
+imprimir_resultados(empleados_100_a_300, empleados_mas_300, gasto_total) """
+
+# Realizar un programa que imprima 25 términos de la serie 11 - 22 - 33 - 44, etc. 
+# (No se ingresan valores por teclado)
+
+""" numero = 11
+for x in range(25):
+    print(numero)
+    numero = numero + 11  """
+
+# Mostrar los múltiplos de 8 hasta el valor 500. Debe aparecer en pantalla 8 - 16 - 24, etc.
+
+""" mult8=8
+while mult8<=500:
+    print(mult8)
+    mult8=mult8+8 """
+
+#Realizar un programa que permita cargar dos listas de 15 valores cada una. Informar con un 
+# mensaje cual de las dos listas tiene un valor acumulado mayor (mensajes "Lista 1 mayor", 
+# "Lista 2 mayor", "Listas iguales")Tener en cuenta que puede haber dos o más estructuras 
+# repetitivas en un algoritmo.
