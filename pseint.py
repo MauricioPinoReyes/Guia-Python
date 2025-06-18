@@ -783,7 +783,76 @@ for multiplicador in range(1,11):
 #1)	Simular el comportamiento de un reloj digital, imprimiendo la hora, 
 # minutos y segundos de un día desde las 0:00:00 horas hasta las 23:59:59 horas
 
-for h in range(24):
+""" for h in range(24):
     for m in range(60):
         for s in range(60):
-            print(h,":",m,":",s)
+            print(h,":",m,":",s) """
+
+
+#2)	Una persona debe realizar un muestreo con n personas para determinar el promedio 
+# de peso de los niños, jóvenes, adultos y tercera edad que existen en su zona 
+# habitacional. Se determinan las categorías con base en la siguiente tabla:
+
+#         CATEGORIA			     EDAD
+#		    Niños				0 - 12
+#		    Jóvenes			   13 - 29
+#		    Adultos			   30 - 59
+#		    3ra Edad		   60 en adelante
+
+
+#=======================================================================
+#======SOLUCION 1 INGRESANDO CANTIDAD DE PERSONAS CON VALIDACION DE EDAD
+#=======================================================================
+
+""" pesoNinios=pesoJovenes=pesoAdultos=peso3raEdad=0
+contNinios=contJovenes=contAdultos=cont3raEdad=0
+#peso
+
+cantPersonas = int(input("Ingrese cantidad de personas: "))
+for x in range(cantPersonas):
+    edad = int(input(f"Ingrese edad de la persona {x+1}:  "))
+    #validacion de edad >= a 0
+    while edad < 0:
+        print("Error. Debe ingresar una edad igual o mayor a 0")
+        edad = int(input(f"Ingrese edad de la persona {x+1}: "))
+    
+    peso = float(input(f"Ingrese peso de la persona {x+1}: "))
+    if edad >=0 and edad <=12:
+        pesoNinios+=peso
+        contNinios+=1
+    elif edad >=13 and  edad <=29:
+        pesoJovenes+=peso
+        contJovenes+=1
+    elif edad >=30 and edad <=59:
+        pesoAdultos+=peso
+        contAdultos+=1
+    else:
+        peso3raEdad+=peso
+        cont3raEdad+=1         
+        
+print(f"El peso promedio de los niños es : {round(pesoNinios/contNinios,2)}")    
+print(f"El peso promedio de los jovenes es : {round(pesoJovenes/contJovenes,2)}")    
+print(f"El peso promedio de los adultos es : {round(pesoAdultos/contAdultos,2)}")    
+print(f"El peso promedio de los adultos mayores es : {round(peso3raEdad/cont3raEdad,2)}") """    
+
+
+#===================================================
+#======SOLUCION 2 SOLICITANDO DATOS AL USUARIO =====
+#===================================================
+
+
+bandera = True
+
+
+
+while True:
+    try:
+        edad = int(input(f"Ingrese edad de la persona :  "))
+        while edad < 0:
+            print("Error. Debe ingresar una edad igual o mayor a 0")
+        edad = int(input("Ingrese edad de la persona  "))    
+        break
+    except ValueError:
+        print("El valor debe ser un número estero.")
+
+print("Salio del bucle...")        
