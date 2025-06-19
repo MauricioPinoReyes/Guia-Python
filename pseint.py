@@ -841,7 +841,7 @@ print(f"El peso promedio de los adultos mayores es : {round(peso3raEdad/cont3raE
 #===================================================
 
 
-bandera = True
+""" bandera = True
 
 
 
@@ -855,4 +855,6 @@ while True:
     except ValueError:
         print("El valor debe ser un número estero.")
 
-print("Salio del bucle...")        
+print("Salio del bucle...")         """
+
+

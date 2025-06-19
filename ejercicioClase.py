@@ -107,6 +107,10 @@ else:
 # llegar a la caja. La tienda tiene una promoción del 20% de descuento sobre aquellos 
 # artículos cuya etiqueta sea roja. Determinar la cantidad de dinero que esta persona deberá pagar
 
+# HACER ESTE CLICLO PARA VARIOS CLIENTES
+# SUGERENCIA: INSERTAR OTRO CICLO DENTRO DE LOS ARTICULOS
+
+
 #=================================================
 #======SOLUCION 1 INGRESANDO TOTAL DE ARTICULOS===
 #=================================================
@@ -121,8 +125,8 @@ for x in range(cantArticulos):
     precioTotal += precio
 
 print(f"La cantidad de articulos ingresados es: {cantArticulos} ")
-print(f"El precio total de la compra es: {precioTotal} ")
- """
+print(f"El precio total de la compra es: {precioTotal} ") """
+
 
 
 #================================================================
@@ -162,3 +166,34 @@ print("\n--- Resumen de compra ---")
 print(f"Cantidad de artículos: {cantArticulos}")
 print(f"Precio total: ${precioTotalRedondeado}")
 print(f"Ahorro por descuentos: ${descuentoTotalRedondeado}") """
+
+""" precioTotal=0
+bandera = True
+
+while bandera==True:
+    precio = int(input("Ingrese precio (0 para salir): "))
+    etiqueta = int(input("Ingrese etiqueta (0 para salir): "))
+    if precio == 0 or etiqueta == 0:
+        #break
+        bandera=False
+    if etiqueta == 1:
+        precio = precio * 0.80
+    precioTotal += precio
+
+#print(f"La cantidad de articulos ingresados es: {cantArticulos} ")
+print(f"El precio total de la compra es: {precioTotal} ")  """   
+
+
+
+#===============================================================
+#=========================CICLO WHILE===========================
+#===============================================================    
+
+#SOLUCION 1 HECHA POR EL PROFE
+
+n=int(input("A cuantos estudianes calcularas el promedio: "))
+i=1
+while i <= n:
+    print("\nIngresa notas para el/la estudiente "+str(i))
+    nota1=float(input("ingresa nota 1: "))
+    nota2=float(input("ingresa nota 2: "))
