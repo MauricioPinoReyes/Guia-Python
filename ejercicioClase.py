@@ -110,6 +110,23 @@ else:
 # HACER ESTE CLICLO PARA VARIOS CLIENTES
 # SUGERENCIA: INSERTAR OTRO CICLO DENTRO DE LOS ARTICULOS
 
+precioTotal=0
+cant_clientes = int(input("Ingrese cantidad de clientes: "))
+for x in range(cant_clientes):
+    cantArticulos = int(input("Ingrese cantidad de articulos: "))
+    for x in range(cantArticulos):
+        precio = float(input(f"Ingrese precio del articulo {x+1}: "))
+        etiqueta = int(input("Etiqueta roja? 1 para si, 0 para no: "))
+        if etiqueta == 1:
+            precio = precio * 0.80
+        precioTotal += precio
+
+print(f"La cantidad de articulos ingresados es: {cantArticulos} ")
+print(f"El precio total de la compra es: {precioTotal} ")
+
+
+
+
 
 #=================================================
 #======SOLUCION 1 INGRESANDO TOTAL DE ARTICULOS===
@@ -191,9 +208,9 @@ print(f"El precio total de la compra es: {precioTotal} ")  """
 
 #SOLUCION 1 HECHA POR EL PROFE
 
-n=int(input("A cuantos estudianes calcularas el promedio: "))
+""" n=int(input("A cuantos estudianes calcularas el promedio: "))
 i=1
 while i <= n:
     print("\nIngresa notas para el/la estudiente "+str(i))
     nota1=float(input("ingresa nota 1: "))
-    nota2=float(input("ingresa nota 2: "))
+    nota2=float(input("ingresa nota 2: ")) """

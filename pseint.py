@@ -133,12 +133,12 @@ print("El presupuesto de Pediatria es: ")
 print(pedriatria) """
 
 
-# 6) El dueño de una tienda compra un artículo a un precio determinado. 
-#    Obtener el precio en que lo debe vender para obtener una ganancia del 32%.
+# 6) El dueño de una tienda compra un artículo a un totalAPagar determinado. 
+#    Obtener el totalAPagar en que lo debe vender para obtener una ganancia del 32%.
 """ CONST_GANANCIA = 1.32
-precio_compra = float(input("Ingrese precio de compra: "))
+precio_compra = float(input("Ingrese    totalAPagar de compra: "))
 precio_venta = precio_compra * CONST_GANANCIA
-print("El precio de venta es de :")
+print("El   totalAPagar de venta es de :")
 print(precio_venta) """
 
 # 7) Todos los lunes, miércoles y viernes, una persona corre la misma ruta y cronometra 
@@ -278,13 +278,13 @@ print(calorias_consumidas)    """
 
 
 # 8) Escribir un algoritmo que despliegue el nombre de un artículo, clave, 
-#  precio original y su precio con descuento. El descuento lo hace en base a 
+#   totalAPagar original y su    totalAPagar con descuento. El descuento lo hace en base a 
 # la clave, si la clave es 01 el descuento es del 10% y si la clave es 02 el 
 # descuento en del 20% (solo existen dos claves).
 
 """ nombre_articulo = input("Ingrese nombre: ")
 clave = input("Ingrese clave: ")
-precio_original = float(input("Ingrese precio original: "))
+precio_original = float(input("Ingrese  totalAPagar original: "))
 
 
 if clave == "01":
@@ -308,12 +308,11 @@ print(
 #  Si se compran tres camisas o más se aplica un descuento del 20% sobre el 
 #  total de la compra y si son menos de tres camisas un descuento del 10%
 
-""" numero_camisas = int(input("Ingrese número de camisas: "))
-precio = float(input("Ingrese precio de la camisa: "))
+""" numero_camisas = int(input("Ingrese número de camisas: "))  totalAPagar = float(input("Ingrese   totalAPagar de la camisa: "))
 if numero_camisas >=3:
-    precio_final = numero_camisas * (precio * (1-0.20))
+    precio_final = numero_camisas *     totalAPagar * (1-0.20))
 else:
-    precio_final = numero_camisas * (precio * (1-0.10))
+    precio_final = numero_camisas *     totalAPagar * (1-0.10))
 print(f"Total a pagar: {precio_final}") """
 
 # 10) Una empresa quiere hacer una compra “rayos de bicicleta” a una fábrica de 
@@ -361,7 +360,7 @@ interes_fabricante = credito_fabricante * 0.20 """
 #==============================================================
 
 # 1) Calcular el total que una persona debe pagar por la compra de 
-# neumáticos en un supermercado, si el precio de cada neumático es 
+# neumáticos en un supermercado, si el  totalAPagar de cada neumático es 
 # de $64.500 si se compran menos de 5 neumáticos y de $51.200 si se compran 5 o más.
 
 """ cant_neumaticos = int(input("Ingrese cantidad de neumaticos: "))
@@ -389,7 +388,7 @@ try:
     if cantidad_neumaticos < 0:
         print("Error: La cantidad no puede ser negativa")
     else:
-        # Cálculo del precio según cantidad
+        # Cálculo del   totalAPagar según cantidad
         if cantidad_neumaticos >= CANTIDAD_MINIMA_DESCUENTO:
             precio_unitario = PRECIO_DESCUENTO
             total = cantidad_neumaticos * PRECIO_DESCUENTO
@@ -835,26 +834,67 @@ print(f"El peso promedio de los jovenes es : {round(pesoJovenes/contJovenes,2)}"
 print(f"El peso promedio de los adultos es : {round(pesoAdultos/contAdultos,2)}")    
 print(f"El peso promedio de los adultos mayores es : {round(peso3raEdad/cont3raEdad,2)}") """    
 
+#PAG 34
+#3)	Al cerrar un expendio de leche cultivada %0 materia grasa, n clientes que aún 
+# no han pagado recibirán un 15% de descuento si compran más de 10 litros. 
+# Determinar cuánto pagará cada cliente y cuanto percibirá la tienda por esas compras.
 
-#===================================================
-#======SOLUCION 2 SOLICITANDO DATOS AL USUARIO =====
-#===================================================
+#=============================
+#==========SOLUCION 1 ========
+#=============================
+""" ingresoTienda=0
+VALOR_LITRO_LECHE = 1000
+cant_clientes = int(input("Ingrese cantidad de clientes: "))
+for x in range(cant_clientes):
+    litros = float(input(f"Ingrese litros del cliente {x+1}:"))
+    if litros > 10:
+        totalAPagar = (litros * VALOR_LITRO_LECHE) * 0.85
+    else:
+        totalAPagar = litros * VALOR_LITRO_LECHE    
+    
+    ingresoTienda+= totalAPagar
+    
+    print("=========================================")
+    print(f"EL total a pagar del clientes {x+1} es : {totalAPagar}")
 
+print(f"El ingreso total de la tienda es: {ingresoTienda}") """
 
-""" bandera = True
+#====================================================
+#==========SOLUCION 2 CON FUNCIONES Y ARREGLOS ======
+#====================================================
 
+""" def cargarDatos():
+    arregloLitros = []
+    while True:
+        litro = float(input("Ingrese"))
+        arregloLitros.append(litro)
+        respuesta=input("Desea ingresar más datos (S/N): ").upper()
+        if respuesta=="N":
+            break
+    return arregloLitros
 
+def determinarPagoCliente(arregloLitros):
+    VALOR_LITRO_LECHE = 1000 
+    pagos = []
+    for litros in arregloLitros:
+        if litros > 10:
+            totalApagarCliente = (litros*VALOR_LITRO_LECHE) * 0.85
+        else:
+             totalApagarCliente = litros*VALOR_LITRO_LECHE   
+        pagos.append(totalApagarCliente)
 
-while True:
-    try:
-        edad = int(input(f"Ingrese edad de la persona :  "))
-        while edad < 0:
-            print("Error. Debe ingresar una edad igual o mayor a 0")
-        edad = int(input("Ingrese edad de la persona  "))    
-        break
-    except ValueError:
-        print("El valor debe ser un número estero.")
+    return pagos            
 
-print("Salio del bucle...")         """
+def imprimirResultados(pagos):
+    ingresoTienda=0
+    for x in range(len(pagos)):
+        print(f"El cliente {x+1} debe pagar: {pagos[x]} ")
+        ingresoTienda+=pagos[x]
+    print("========================")
+    print(f"El total de ingresos de la tienda es: {ingresoTienda}")
 
-
+print("====Imprimiendo datos====")
+arregloLitros = cargarDatos()
+print(arregloLitros)
+pagos = determinarPagoCliente(arregloLitros)
+imprimirResultados(pagos) """
