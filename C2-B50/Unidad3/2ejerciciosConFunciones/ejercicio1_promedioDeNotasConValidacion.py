@@ -16,26 +16,16 @@ else:
     print("Lo lamente, has reprobado") """
 
 def leerN():
-    while True:
-        cantNotas=int(input("Ingrese cantidad de notas : "))
-        if cantNotas > 0 :
-            return cantNotas
-        else:
-            print("El número debe ser mayor a 0")
-    
+    return int(input("Cantidad de notas (n): "))
+    #n=int(input("Cantidad de notas (n): "))
+    #return n
 
 def calcularPromedio():
     n=leerN()
     suma=0
     for _ in range(n):
-        while True:
-            nota=float(input("Ingresa nota: "))
-            if nota >= 1.0 and nota <= 7.0:
-                suma += nota
-                break
-            else:
-                print("Nota fuera de rango: ")
-            
+        nota=float(input("Ingresa nota: "))
+        suma += nota
     return round(suma/n,1)
 
 def mostrarSituacionFinal():
@@ -48,8 +38,7 @@ def mostrarSituacionFinal():
     return situacion, promedio
 #PP
 
-
-print("=====================")
-situacion, promedio = mostrarSituacionFinal()
-print("Tu situacion es: ",situacion)
+promedio = calcularPromedio()
 print("Tu promedio es: ",promedio)
+print("=====================")
+deteminarEstado(promedio)

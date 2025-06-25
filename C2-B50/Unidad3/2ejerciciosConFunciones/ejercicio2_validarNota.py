@@ -1,6 +1,7 @@
 """ construya una funcion que lee una nota y valide
 que sea valida (rango 1.0 a 7.0) """
 
+
 def leerNota():
     while True:
         nota=int(input("Ingrese nota : "))
@@ -9,6 +10,15 @@ def leerNota():
         else:
             print("Nota fuera de rango")
         
-            
+leerNota()  
 
-leerNota()    
+
+""" def validarNumero():
+    while True:
+        numero=int(input("Numero : "))
+        if numero > 0 :
+            return numero
+        else:
+            print("Nota fuera de rango")
+
+validarNumero()     """        
