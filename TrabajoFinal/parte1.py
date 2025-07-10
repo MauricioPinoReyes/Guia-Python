@@ -3,57 +3,74 @@
 # devolver el resultado de la operación (puedes tener una 
 # función única que realice las cuatro operaciones)
 
-""" def operaciones_basicas(num1, num2, operacion):
-    
-    if operacion == 1:  # Sumar
-        return num1 + num2
-    elif operacion == 2:  # Restar
-        return num1 - num2
-    elif operacion == 3:  # Multiplicar
-        return num1 * num2
-    elif operacion == 4:  # Dividir
-        if num2 != 0:
-            return num1 / num2
+def ingresarNumeros():
+    numero1 = int(input("Ingrese el primer número:"))
+    numero2 = int(input("Ingrese el segundo número:"))
+    return numero1,numero2
+
+def sumar(a,b):
+    return a+b
+
+def restar(a,b):
+    return a-b
+
+def multiplicar(a,b):
+    return a*b
+
+def dividir(a,b):
+    return a/b
+
+def operar(a, b):
+    while True:
+        print("Operaciones disponibles:")
+        print("1. Sumar")
+        print("2. Restar")
+        print("3. Multiplicar")
+        print("4. Dividir")
+        operacion = int(input("Ingrese operacion: "))
+        
+        if operacion == 1:
+            return sumar(a,b)
+        elif operacion == 2:
+            return restar(a,b)
+        elif operacion == 3:
+            return multiplicar(a,b)
+        elif operacion == 4:
+            if b == 0:
+                print("Error: No se puede dividir entre cero. Intente otra operación.")
+            else:
+                return dividir(a,b)
         else:
-            return "Error: división por cero"
-    else:
-        return None
+            print("Opción inválida. Intente de nuevo.")
 
-def menu():
-    print("Operaciones disponibles:")
-    print("1. Sumar")
-    print("2. Restar")
-    print("3. Multiplicar")
-    print("4. Dividir")
-    
-    opcion = int(input("Seleccione una operación (1-4): "))
-    num1 = float(input("Ingrese el primer número: "))
-    num2 = float(input("Ingrese el segundo número: "))
-    
-    resultado = operaciones_basicas(num1, num2, opcion)
-    
-    if resultado is not None:
-        print(f"El resultado es: {resultado}")
-    else:
-        print("Operación no válida") """
+def main():
+    numero1, numero2 = ingresarNumeros()
+    resultado = operar(numero1,numero2)
+    print(f"El resultado de la operacion es: {resultado}")
 
-
+#PP
+main()
 
 
 #2.	Función que reciba un texto de caracteres y cuente cuántas vocales contiene
 
-""" def contar_vocales(texto):
+""" def ingresarTexto():
+    return input("Ingrese texto : ").lower()
+
+def contarVocales(texto):
     contador = 0
-    for caracter in texto:
-        if caracter.lower() in {'a', 'e', 'i', 'o', 'u'}:
-            contador += 1
+    for letra in texto:
+        if letra == 'a' or letra == 'e' or letra == 'i' or letra == 'o' or letra == 'u':
+            contador+=1
     return contador
 
-texto = input("Ingrese un texto: ")
-print(f"El texto contiene {contar_vocales(texto)} vocales") """
-
-
-
+def main():
+    texto = ingresarTexto()
+    cantVocales = contarVocales(texto)
+    print(f"La cantidad de vocales es: {cantVocales}")
+    
+##PP
+main() """
 
 #3.	Función que reciba un número entre 1 y 999 y devuelva el número separado en 
 # unidad, decena y centena, si por ejemplo recibe:
@@ -61,39 +78,61 @@ print(f"El texto contiene {contar_vocales(texto)} vocales") """
 #b.	El 97, debe devolver 0, 9 y 7
 #c.	El 8, debe devolver 0, 0 y 8
 
-""" def separar_numero(numero):
-    if numero < 1 or numero > 999:
-        return "Número fuera de rango"
-    
+""" def ingresarNumero():
+    while True:
+        numero = int(input("Ingrese numero: "))
+        if 1 <= numero <= 999:
+            return numero
+        else:
+            print("Número fuera de rango. Intente de nuevo.")
+
+def separarNumero(numero):
     centenas = numero // 100
     decenas = (numero % 100) // 10
     unidades = numero % 10
     
     return centenas, decenas, unidades
 
+def main():    
+    numero = ingresarNumero()
+    c, d, u = separarNumero(numero)
+    print(f"{c}, {d} y {u}")
 
-c, d, u = separar_numero(238)
-print(f"Centenas: {c}, Decenas: {d}, Unidades: {u}") """
-
-
+##PP
+main() """
 
 
 
 #4.	Función que reciba un número entero de máximo 10 dígitos (mayor que cero) 
 # y lo devuelva invertido, por ejemplo, si recibe el 397, debe devolver el 793 
 
-""" def invertir_numero(numero):
-    if numero <= 0 or numero > 9999999999:
-        return "Número fuera de rango válido"
+""" def ingresarNumero():
+     while True:
+        numero = int(input("Ingrese numero: "))
+        if numero > 0 and numero  < 9999999999:
+            return numero
+        else:
+            print("Número fuera de rango. Intente de nuevo.")
+
+        
+def invertirNumero(numero):
+    numeroString = str(numero)
+    numeroInvertido = ""
+    for i in range(len(numeroString) - 1, -1, -1):
+        numeroInvertido = numeroInvertido + numeroString[i]
     
-    numero_invertido = 0
-    while numero > 0:
-        digito = numero % 10
-        numero_invertido = numero_invertido * 10 + digito
-        numero = numero // 10
+    return int(numeroInvertido)
+
+def main():
+    numero = ingresarNumero()
+    numeroInvertido= invertirNumero(numero)
+    print(f"El número original es: {numero}")
+    print("================")
+    print(f"El número invertido es: {numeroInvertido} ")
     
-    return numero_invertido
 
 
-num = int(input("Ingrese un número: "))
-print(f"El número invertido es: {invertir_numero(num)}") """
+##PP
+main() """
+
+
