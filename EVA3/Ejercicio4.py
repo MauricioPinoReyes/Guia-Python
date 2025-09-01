@@ -4,7 +4,9 @@
 def ingresarNumero():
      while True:
         numero = int(input("Ingrese numero: "))
-        if numero > 0 and numero  < 9999999999:
+        #9.999.999.999 nueve mil novecientos noventa y nueve millones 
+        # novecientos noventa y nueve mil novecientos noventa y nueve
+        if numero > 0 and numero  < 9999999999:  
             return numero
         else:
             print("Número fuera de rango. Intente de nuevo.")
