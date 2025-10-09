@@ -1,4 +1,5 @@
 
+
 class Estudiante():
     def __init__(self,rut,nombre,carrera):
         self.rut=rut
@@ -8,4 +9,3 @@ class Estudiante():
     def mostrarEstudiante(self):
         return self.rut.mostrarRut()+" > "+self.nombre+" > "+self.carrera.mostrarCarrera()
         
-         

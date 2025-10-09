@@ -23,9 +23,14 @@ def agregarEstudiante():
     
     return listaEstudiantes  
 
-
 estudiantes = agregarEstudiante()
-print(estudiantes)
+
+for x in estudiantes:
+    print(x.mostrarEstudiante())
+
+#print(estudiantes)
+
+
 
 """ listaNotas=[]
 rut=Rut(12345678,"9")
